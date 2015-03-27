@@ -1,0 +1,30 @@
+lzma
+------
+
+Package lzma implements reading and writing of LZMA compression format.
+
+
+Usage:
+
+    import "stablelib.com/v1/compress/lzma"
+
+
+Documentation:
+
+    https://stablelib.com/doc/v1/compress/lzma
+
+
+Upstream:
+
+    https://code.google.com/p/lzma-go/lzma
+
+
+StableLib package version:
+
+    1.0.0
+
+
+Use is subject to StableLib Terms of Service: https://stablelib.com/terms/
+
+StableLib is a distribution of open source Go packages with long-term support.
+Learn more at https://stablelib.com
