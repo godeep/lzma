@@ -793,7 +793,6 @@ DoWhile1:
 			}
 		}
 	}
-	return
 }
 
 var tempPrices []uint32 = make([]uint32, kNumFullDistances)

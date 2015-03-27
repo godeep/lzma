@@ -42,7 +42,6 @@ func (lc *lenCoder) decode(rd *rangeDecoder, posState uint32) (res uint32) {
 		res = res + kNumMidLenSymbols + l
 		return
 	}
-	return
 }
 
 func (lc *lenCoder) encode(re *rangeEncoder, symbol, posState uint32) {
