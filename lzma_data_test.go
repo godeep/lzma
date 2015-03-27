@@ -5,8 +5,12 @@
 package lzma
 
 import (
+	"bytes"
+	"compress/gzip"
+	"io"
 	"io/ioutil"
 	"log"
+	"os"
 )
 
 type lzmaTest struct {
@@ -298,14 +302,33 @@ type lzmaBenchmark struct {
 func readFile(filename string) []byte {
 	file, err := ioutil.ReadFile(filename)
 	if err != nil {
-		log.Fatalf("%v", err)
+		log.Fatal(err)
 	}
 	return file
+}
+
+func readGzippedFile(filename string) []byte {
+	var buf bytes.Buffer
+	f, err := os.Open(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
+	z, err := gzip.NewReader(f)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer z.Close()
+	_, err = io.Copy(&buf, z)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return buf.Bytes()
 }
 
 var bench = lzmaBenchmark{
 	descr: "text bench with size == -1",
 	level: 3,
-	raw:   readFile("data/data.txt"),
+	raw:   readGzippedFile("data/data.txt.gz"),
 	lzma:  readFile("data/data.eos.l3.lzma"),
 }
