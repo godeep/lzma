@@ -2,7 +2,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// The lzma package implements reading and writing of LZMA format compressed data.
+// Package lzma implements reading and writing of LZMA compression format.
+//
 // Reference implementation is LZMA SDK version 4.65 originaly developed by Igor
 // Pavlov, available online at:
 //
